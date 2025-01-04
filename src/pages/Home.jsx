@@ -6,7 +6,7 @@ function Home() {
   return (
     <main id="home" className="home-page">
       <h1>Welcome to ERP Dash</h1>
-      <Link to="dashboard">
+      <Link to="dashboard" className="btn btn__primary">
         Go to dashboard <TbArrowRight />
       </Link>
     </main>

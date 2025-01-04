@@ -1,0 +1,14 @@
+.btn {
+  padding: 15px 25px;
+  border-radius: 50px;
+  @include flexbox(center, center, 10px);
+
+  &__primary {
+    background-color: $color-accent;
+    color: $color-bg-1;
+
+    svg {
+      stroke: $color-bg-1;
+    }
+  }
+}

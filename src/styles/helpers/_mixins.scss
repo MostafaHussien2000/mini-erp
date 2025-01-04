@@ -1,0 +1,8 @@
+// Flex-Box Mixin: Default values is to center elements within the box.
+@mixin flexbox($justify: center, $align: center, $gap: 0, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-direction: $direction;
+}

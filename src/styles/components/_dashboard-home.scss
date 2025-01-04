@@ -1,0 +1,23 @@
+.dashboard-home {
+  @include flexbox(center, center, 20px, column);
+  height: 100%;
+
+  &__links {
+    @include flexbox(center, stretch, 10px, row);
+    flex-wrap: wrap;
+
+    &__link {
+      background-color: $color-bg-2;
+      padding: 20px;
+      border-radius: 10px;
+      @include flexbox(center, center, 10px, column);
+      transition: background-color 0.2s ease;
+      &:hover {
+        background-color: $color-gray;
+      }
+      svg path {
+        fill: $color-text-main;
+      }
+    }
+  }
+}
