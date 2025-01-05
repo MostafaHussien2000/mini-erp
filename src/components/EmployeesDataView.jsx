@@ -1,27 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Icons from "../ui/Icons";
+import { Employees } from "../api/Employees";
+import { Link } from "react-router-dom";
+
+const employeesInstance = new Employees();
 
 function EmployeesDataView() {
-  const [employees, setEmployees] = useState([
-    {
-      id: 0,
-      name: "John Doe",
-      role: "Software",
-      email: "john_123@email.com",
-      phone: "+201082531540",
-      startDate: "02/12/2024",
-      active: true,
-    },
-    {
-      id: 0,
-      name: "Ali Mike",
-      role: "Data Entry",
-      email: "ali_123@email.com",
-      phone: "+201082531540",
-      startDate: "02/12/2024",
-      active: false,
-    },
-  ]);
+  const [employees, setEmployees] = useState();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const getEmployees = async () => {
+    try {
+      setLoading(true);
+      const data = await employeesInstance.getAllEmployees();
+
+      console.log(data);
+
+      setEmployees(data);
+    } catch (err) {
+      console.error(err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getEmployees();
+  }, []);
   return (
     <div className="employees-data-view">
       <div className="employees-data-view__actions">
@@ -44,9 +51,17 @@ function EmployeesDataView() {
             <th>Active</th>
           </thead>
           <tbody>
-            {employees.map((employee) => (
-              <TableRow key={employee.id} employee={employee} />
-            ))}
+            {employees?.length > 0 ? (
+              employees.map((employee) => (
+                <TableRow key={employee.id} employee={employee} />
+              ))
+            ) : (
+              <tr>
+                <td colSpan={6}>
+                  <center style={{ opacity: 0.5 }}>No Data</center>
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
@@ -59,12 +74,14 @@ export default EmployeesDataView;
 function TableRow({ employee }) {
   return (
     <tr>
-      <td>{employee.name}</td>
-      <td>{employee.role}</td>
-      <td>{employee.email}</td>
-      <td>{employee.phone}</td>
-      <td>{employee.startDate}</td>
-      <td>{employee.active ? <Icons.Tick /> : <Icons.X />}</td>
+      <td>
+        <Link to={`${employee.id}`}>{employee.name || "Unknown"}</Link>
+      </td>
+      <td>{employee.role || "-"}</td>
+      <td>{employee.email || "-"}</td>
+      <td>{employee.phone || "-"}</td>
+      <td>{employee.startDate || "-"}</td>
+      <td>{employee.activeStatus ? <Icons.Tick /> : <Icons.X />}</td>
     </tr>
   );
 }

@@ -18,6 +18,7 @@ function App() {
           <Route index Component={MainView} />
           <Route path="teams" Component={TeamsView} />
           <Route path="employees" Component={EmployeesView} />
+          <Route path="employees/:id" Component={EmployeesView} />
           <Route path="settings" Component={SettingsView} />
         </Route>
       </Routes>

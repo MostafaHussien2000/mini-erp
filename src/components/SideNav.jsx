@@ -46,6 +46,7 @@ function SideNav() {
           <li>
             <NavLink
               to="/dashboard/employees"
+              end
               className={({ isActive }) =>
                 isActive
                   ? "sidenav__nav__links__link active"

@@ -1,3 +1,12 @@
 {
-  "employees": []
+  "employees": [
+    {
+      "id": "0001",
+      "name": "John Doe",
+      "role": "IT",
+      "email": "john@email.com",
+      "phone": "+20112202336",
+      "activeStatus": true
+    }
+  ]
 }
