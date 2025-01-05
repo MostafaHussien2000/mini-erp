@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Icons from "../ui/Icons";
 
 function EmployeesDataView() {
   const [employees, setEmployees] = useState([
@@ -23,28 +24,24 @@ function EmployeesDataView() {
   ]);
   return (
     <div className="employees-data-view">
-      <div className="employees-data-view__actions"></div>
+      <div className="employees-data-view__actions">
+        <div className="employees-data-view__actions__search">
+          <Icons.Search />
+          <input type="text" placeholder="Search employees" />
+        </div>
+        <button className="employees-data-view__actions__add">
+          <Icons.Plus /> New Employee
+        </button>
+      </div>
       <div className="employees-data-view__table">
         <table>
           <thead>
-            <th>
-              <td>Employee</td>
-            </th>
-            <th>
-              <td>Role</td>
-            </th>
-            <th>
-              <td>E-Mail</td>
-            </th>
-            <th>
-              <td>Phone</td>
-            </th>
-            <th>
-              <td>Start Date</td>
-            </th>
-            <th>
-              <td>Active</td>
-            </th>
+            <th>Employee</th>
+            <th>Role</th>
+            <th>E-Mail</th>
+            <th>Phone</th>
+            <th>Start Date</th>
+            <th>Active</th>
           </thead>
           <tbody>
             {employees.map((employee) => (
@@ -67,7 +64,7 @@ function TableRow({ employee }) {
       <td>{employee.email}</td>
       <td>{employee.phone}</td>
       <td>{employee.startDate}</td>
-      <td>{employee.active ? "Active" : "Not Active"}</td>
+      <td>{employee.active ? <Icons.Tick /> : <Icons.X />}</td>
     </tr>
   );
 }
