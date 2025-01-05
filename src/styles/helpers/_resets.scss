@@ -30,10 +30,19 @@ h3 {
   font-size: $font-size-heading-3;
   font-weight: $font-weight-heading-3;
 }
-p {
+p,
+td,
+a {
   font-size: $font-size-paragraph;
   font-weight: $font-weight-paragraph;
 }
 p.small {
   font-size: $font-size-paragraph-sm;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

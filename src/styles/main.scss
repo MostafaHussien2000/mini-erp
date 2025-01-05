@@ -4,9 +4,13 @@
 @import "./helpers/resets";
 @import "./helpers/mixins";
 
+/* Importing UI Components
+========================== */
+@import "./ui/button";
+@import "./ui/header";
+
 /* Importing Components
 ======================= */
-@import "./components/button";
 @import "./components/side-nav";
 @import "./components/dashboard-home";
 

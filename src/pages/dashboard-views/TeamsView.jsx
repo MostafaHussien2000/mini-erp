@@ -1,10 +1,15 @@
 import React from "react";
 
+/* React Components
+=================== */
+import Header from "../../ui/Header";
+
 function TeamsView() {
   return (
-    <section>
-      <h1>Teams View</h1>s
-    </section>
+    <>
+      <Header title="Teams" />
+      <section></section>
+    </>
   );
 }
 

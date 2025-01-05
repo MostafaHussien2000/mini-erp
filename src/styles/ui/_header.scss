@@ -1,0 +1,70 @@
+.header {
+  padding: 10px 30px;
+  background-color: $color-bg-1;
+  @include flexbox(space-between, center, 10px, row);
+
+  &__info {
+    @include flexbox(flex-end, center, 10px, row);
+
+    &__mail,
+    &__notifications {
+      width: 48px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      @include flexbox;
+
+      p {
+        position: absolute;
+        width: 24px;
+        aspect-ratio: 1 / 1;
+        border-radius: 20px;
+        background-color: $color-accent;
+        color: $color-bg-1;
+        top: 0;
+        right: 0;
+        transform: translate(25%, -25%);
+        @include flexbox;
+        pointer-events: none;
+      }
+    }
+
+    &__user {
+      @include flexbox(flex-end, center, 10px, row);
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 10px;
+      &:hover {
+        background-color: $color-bg-2;
+      }
+
+      &__avatar {
+        width: 48px;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        border: none;
+        overflow: hidden;
+        background-color: $color-gray;
+      }
+      &__text {
+        &__name {
+          text-align: left;
+          font-weight: $font-weight-heading-3;
+        }
+        &__role {
+          text-align: left;
+          opacity: 0.6;
+        }
+      }
+      &__icon {
+        svg path {
+          fill: $color-text-main;
+        }
+      }
+    }
+  }
+}

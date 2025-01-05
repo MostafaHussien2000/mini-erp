@@ -1,6 +1,6 @@
 .dashboard-home {
   @include flexbox(center, center, 20px, column);
-  height: 100%;
+  margin-top: 120px;
 
   &__links {
     @include flexbox(center, stretch, 10px, row);

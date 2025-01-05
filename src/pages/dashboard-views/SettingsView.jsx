@@ -1,10 +1,15 @@
 import React from "react";
 
+/* React Components
+=================== */
+import Header from "../../ui/Header";
+
 function SettingsView() {
   return (
-    <section>
-      <h1>Settings View</h1>
-    </section>
+    <>
+      <Header title="Settings" />
+      <section></section>
+    </>
   );
 }
 
