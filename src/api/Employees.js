@@ -10,11 +10,37 @@ export class Employees {
       if (!response.ok) throw new Error("Failed to fetch all employees.");
 
       const data = await response.json();
-      console.log(data);
 
       return data;
     } catch (err) {
       throw new Error(err.message);
+    }
+  }
+
+  // Add new employee
+  async addNewEmployee(data) {
+    data.image = data.base64;
+
+    delete data.base64;
+
+    try {
+      const response = await fetch("http://localhost:3001/employees", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) throw new Error("Failed to add the employee.");
+
+      const resData = await response.json();
+
+      console.log(resData);
+
+      return resData;
+    } catch (err) {
+      console.error(err);
     }
   }
 

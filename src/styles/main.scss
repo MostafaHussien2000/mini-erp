@@ -8,12 +8,15 @@
 ========================== */
 @import "./ui/button";
 @import "./ui/header";
+@import "./ui/popup";
+@import "./ui/switch-button";
 
 /* Importing Components
 ======================= */
 @import "./components/side-nav";
 @import "./components/dashboard-home";
-@import "./components/employees_data_view";
+@import "./components/employees-data-view";
+@import "./components/add-new-form";
 
 /* Importing Pages
 ================== */

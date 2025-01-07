@@ -1,0 +1,192 @@
+.add-new-employee {
+  &__header {
+    padding: 25px;
+    @include flexbox(space-between, center, 10px);
+
+    button {
+      width: 30px;
+      aspect-ratio: 1 / 1;
+      border-radius: 15px;
+      @include flexbox;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+
+  &__stepper {
+    padding: 25px;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 10px;
+    @include flexbox(space-between, flex-start, 10px);
+    &__road {
+      flex-grow: 1;
+      hr {
+        display: block;
+        border-top: 2px dashed $color-gray;
+        width: 100%;
+        transform: translateY(12px);
+      }
+    }
+    &__step {
+      @include flexbox(flex-start, center, 10px, column);
+      &__circle {
+        display: block;
+        width: 24px;
+        aspect-ratio: 1 / 1;
+        background-color: $color-gray;
+        border-radius: 50%;
+      }
+      &__text {
+        font-size: $font-size-paragraph-sm;
+      }
+
+      &.active {
+        span:first-of-type {
+          background: $color-accent;
+          box-shadow: 0px 0px 0px 1px white, 0px 0px 0px 2px $color-accent;
+        }
+      }
+    }
+  }
+
+  &__form {
+    padding: 25px;
+    &__input-container {
+      margin-bottom: 10px;
+      @include flexbox(flex-start, flex-start, 5px, column);
+      > label {
+        font-size: $font-size-paragraph;
+      }
+      > input,
+      select {
+        display: block;
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 50px;
+        border: 2px solid $color-gray;
+        &:focus {
+          outline-color: $color-accent;
+        }
+      }
+
+      > p {
+        color: rgb(145, 13, 13);
+        background-color: rgb(242, 190, 190);
+        width: 100%;
+        padding: 4px 8px;
+        border-radius: 5px;
+        font-size: $font-size-paragraph-sm;
+      }
+
+      &.image-upload {
+        margin-top: 20px;
+        > div {
+          width: 100%;
+          height: 150px;
+          border: 2px dashed $color-gray;
+          border-radius: 20px;
+          @include flexbox(center, center, 10px, column);
+          label {
+            @include flexbox(center, center, 10px, row);
+            padding: 10px 15px;
+            background-color: $color-accent;
+            border: none;
+            border-radius: 30px;
+            color: $color-bg-1;
+            cursor: pointer;
+          }
+        }
+        > input {
+          display: none;
+        }
+      }
+
+      &.image-preview {
+        > div {
+          width: 100%;
+          border: 2px dashed $color-gray;
+          padding: 10px;
+          border-radius: 20px;
+          @include flexbox(flex-start, center, 10px);
+
+          img {
+            width: 150px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 10px;
+          }
+        }
+        &__info {
+          &__actions {
+            margin-top: 10px;
+            @include flexbox(flex-start, center, 40px);
+            &__button {
+              background-color: transparent;
+              border: none;
+              @include flexbox(center, center, 5px);
+            }
+          }
+        }
+      }
+    }
+    &__buttons {
+      margin-top: 20px;
+      @include flexbox(space-between, center, 5px, row-reverse);
+      button {
+        padding: 10px;
+        background-color: $color-accent;
+        color: $color-bg-1;
+        min-width: 150px;
+        font-size: $font-size-paragraph;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        &:nth-of-type(2) {
+          background: transparent;
+          border: 2px solid #747474;
+          color: #747474;
+        }
+
+        &.submitting {
+          background-color: #747474;
+          pointer-events: none;
+        }
+      }
+    }
+
+    .preview-section {
+      &.double {
+        @include flexbox(space-between, flex-start, 20px);
+        > * {
+          flex-grow: 1;
+        }
+      }
+      h2 {
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: $color-gray;
+      }
+
+      table {
+        padding: 20px 0px;
+        td {
+          &.field-name {
+            padding: 10px;
+            padding-right: 80px;
+            color: #747474;
+          }
+          &.with-image {
+            @include flexbox(flex-start, center, 20px);
+            img {
+              width: 40px;
+              aspect-ratio: 1 / 1;
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
