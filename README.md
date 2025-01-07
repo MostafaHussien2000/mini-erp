@@ -1,8 +1,69 @@
-# React + Vite
+# Enterprise Resource Planning (ERP) System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+This is a modern, web-based Enterprise Resource Planning (ERP) system designed to streamline business operations and improve organizational efficiency. The application provides comprehensive tools for managing employees, resources, and core business processes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- Display all employees data.
+- Add new employees.
+- Edit current employees data.
+- Content is dynamically changing.
+- Ability to delete employees (with confirmation prompt to prevent accidental deletions).
+- A separate page to display each employee details.
+
+## Technology Stack
+
+- Frontend: React.js
+- Styling: SCSS.
+- Backend: Local json-server
+- Database: JSON-based database.
+
+## Prerequisites
+
+- Node.js (v16 or later)
+- npm (v8 or later)
+- Git
+
+## Setup and Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/erp-system.git
+cd erp-system
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the JSON-SERVER
+
+```bash
+npm run serve
+```
+
+It will be up and running on `http://localhost:3001/employees`.
+
+### 4. Run the Application
+
+```bash
+npm run dev
+```
+
+## Missing Features
+
+- Responsive layout.
+- Enabling Search Functionality.
+- Pagination System.
+- Advanced error and loading states handling.
+
+## Contact
+
+Mostafa Hussien AboZeid - [Send A Message](mailto:mabozeed70@gmail.com)
+
+Project Link: https://github.com/MostafaHussien2000/mini-erp
