@@ -31,8 +31,8 @@ This is a modern, web-based Enterprise Resource Planning (ERP) system designed t
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/erp-system.git
-cd erp-system
+git clone https://github.com/MostafaHussien2000/mini-erp.git
+cd mini-erp
 ```
 
 ### 2. Install Dependencies
