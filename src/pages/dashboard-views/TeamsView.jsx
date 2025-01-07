@@ -8,7 +8,15 @@ function TeamsView() {
   return (
     <>
       <Header title="Teams" />
-      <section></section>
+      <section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <center>
+          <p>No content to display in this page.</p>
+        </center>
+      </section>
     </>
   );
 }

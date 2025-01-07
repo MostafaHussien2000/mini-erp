@@ -1,0 +1,63 @@
+.employee-details {
+  padding: 20px;
+  background: $color-bg-2;
+  &__header {
+    @include flexbox(space-between, center, 10px);
+    &__info {
+      @include flexbox(flex-start, center, 10px);
+    }
+    &__action {
+      button {
+        padding: 10px 15px;
+        border-radius: 50px;
+        background-color: $color-accent;
+        border: none;
+        color: $color-bg-1;
+        cursor: pointer;
+      }
+    }
+    h3 {
+      color: #727272;
+    }
+  }
+
+  &__info {
+    &__double {
+      @include flexbox(space-between, flex-start, 20px);
+      > * {
+        flex-grow: 1;
+      }
+    }
+
+    &__section {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: $color-bg-1;
+      box-shadow: 0px 3px 15px rgba(238, 238, 238, 0.501967);
+      h2 {
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: $color-bg-2;
+      }
+      table {
+        padding: 20px 0px;
+        td {
+          &.field-name {
+            padding: 10px;
+            padding-right: 80px;
+            color: #747474;
+          }
+          &.with-image {
+            @include flexbox(flex-start, center, 20px);
+            img {
+              width: 40px;
+              aspect-ratio: 1 / 1;
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

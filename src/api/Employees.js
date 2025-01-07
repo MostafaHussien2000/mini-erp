@@ -36,8 +36,6 @@ export class Employees {
 
       const resData = await response.json();
 
-      console.log(resData);
-
       return resData;
     } catch (err) {
       console.error(err);
@@ -51,7 +49,6 @@ export class Employees {
       if (!response.ok) throw new Error("Failed to fetch product details.");
 
       const data = await response.json();
-      console.log(data);
 
       return data;
     } catch (err) {
@@ -60,8 +57,40 @@ export class Employees {
   }
 
   // Update employee data
-  async updateEmployee(id, data) {}
+  async updateEmployee(id, data) {
+    data.image = data.base64;
+
+    delete data.base64;
+    try {
+      const response = await fetch(`http://localhost:3001/employees/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) throw new Error("Failed to update.");
+
+      const resData = await response.json();
+
+      return resData;
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   // Delete employee
-  async deleteEmployee(id) {}
+  async deleteEmployee(id) {
+    try {
+      const response = await fetch(`http://localhost:3001/employees/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) throw new Error(`Failed to delete post with ID ${id}.`);
+      else console.log("Deleted");
+    } catch (err) {
+      console.error(err);
+    }
+  }
 }

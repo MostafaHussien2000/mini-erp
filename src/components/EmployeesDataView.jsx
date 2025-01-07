@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Icons from "../ui/Icons";
 import { Employees } from "../api/Employees";
 import { Link } from "react-router-dom";
-import AddNewEmployee from "./AddNewEmployee";
 import AddNewEmployeeForm from "./AddNewEmployeeForm";
 
 const employeesInstance = new Employees();
@@ -28,6 +27,13 @@ function EmployeesDataView() {
     }
   };
 
+  const removeEmployee = async (employee) => {
+    if (confirm(`Do you want to delete ${employee.name}`)) {
+      await employeesInstance.deleteEmployee(employee.id);
+      setEmployees((current) => current.filter((el) => el.id !== employee.id));
+    }
+  };
+
   useEffect(() => {
     getEmployees();
   }, []);
@@ -45,13 +51,13 @@ function EmployeesDataView() {
           <Icons.Plus /> New Employee
         </button>
       </div>
-      <AddNewEmployeeForm />
 
       {addNewEmployeeForm && (
-        <AddNewEmployee
+        <AddNewEmployeeForm
           close={() => {
             showAddNewEmployeeForm(false);
           }}
+          setEmployees={setEmployees}
         />
       )}
       <div className="employees-data-view__table">
@@ -64,12 +70,17 @@ function EmployeesDataView() {
               <th>Phone</th>
               <th>Start Date</th>
               <th>Active</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {employees?.length > 0 ? (
               employees.map((employee) => (
-                <TableRow key={employee.id} employee={employee} />
+                <TableRow
+                  key={employee.id}
+                  employee={employee}
+                  removeEmployee={removeEmployee}
+                />
               ))
             ) : (
               <tr>
@@ -87,7 +98,7 @@ function EmployeesDataView() {
 
 export default EmployeesDataView;
 
-function TableRow({ employee }) {
+function TableRow({ employee, removeEmployee }) {
   return (
     <tr>
       <td>
@@ -98,6 +109,14 @@ function TableRow({ employee }) {
       <td>{employee.phone || "-"}</td>
       <td>{employee.startDate || "-"}</td>
       <td>{employee.activeStatus ? <Icons.Tick /> : <Icons.X />}</td>
+      <td>
+        <button
+          onClick={() => removeEmployee(employee)}
+          className="remove-employee"
+        >
+          <Icons.Trash />
+        </button>
+      </td>
     </tr>
   );
 }

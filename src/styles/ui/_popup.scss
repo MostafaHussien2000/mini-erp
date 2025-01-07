@@ -3,6 +3,7 @@
   background-color: rgba(0, 0, 0, 0.786);
   inset: 0;
   padding: 10px;
+  z-index: 1000;
   @include flexbox;
 
   &__container {

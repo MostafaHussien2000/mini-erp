@@ -53,6 +53,12 @@
         td {
           padding: 10px 5px;
           border-bottom: 2px solid $color-gray;
+
+          .remove-employee {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+          }
         }
       }
     }

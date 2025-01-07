@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 /* React Components
 =================== */
 import SideNav from "../components/SideNav";
+import Header from "../ui/Header";
 
 function Dashboard() {
   return (

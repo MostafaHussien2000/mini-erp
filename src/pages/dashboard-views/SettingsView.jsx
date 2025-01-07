@@ -8,7 +8,15 @@ function SettingsView() {
   return (
     <>
       <Header title="Settings" />
-      <section></section>
+      <section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <center>
+          <p>No content to display in this page.</p>
+        </center>
+      </section>
     </>
   );
 }
